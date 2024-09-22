@@ -6,10 +6,17 @@ const bookContents = {
   th: {
     title: "หนังสือภาษาไทย",
     pages: [
-      { image: "../coverImage/Th/1.jpg", text: "หน้าที่ 1 ภาษาไทย" },
-      { image: "../coverImage/Th/2.jpg", text: "หน้าที่ 2 ภาษาไทย" },
-      { image: "../coverImage/Th/3.jpg", text: "หน้าที่ 3 ภาษาไทย" },
-      { image: "../coverImage/Th/4.jpg", text: "หน้าที่ 4 ภาษาไทย" },
+      { image: "../coverImage/Thai/1.jpg", text: "หน้าที่ 1 ภาษาไทย" },
+      { image: "../coverImage/Thai/(ภาษาไทย).jpg", text: "หน้าที่ 2 ภาษาไทย" },
+      { image: "../coverImage/Thai/(ภาษาไทย) (2).jpg", text: "หน้าที่ 3 ภาษาไทย" },
+      { image: "../coverImage/Thai/(ภาษาไทย) (3).jpg", text: "หน้าที่ 4 ภาษาไทย" },
+      { image: "../coverImage/Thai/(ภาษาไทย) (4).jpg", text: "หน้าที่ 5 ภาษาไทย" },
+      { image: "../coverImage/Thai/(ภาษาไทย) (5).jpg", text: "หน้าที่ 6 ภาษาไทย" },
+      { image: "../coverImage/Thai/(ภาษาไทย) (6).jpg", text: "หน้าที่ 7 ภาษาไทย" },
+      { image: "../coverImage/Thai/(ภาษาไทย) (7).jpg", text: "หน้าที่ 8 ภาษาไทย" },
+      { image: "../coverImage/Thai/(ภาษาไทย) (8).jpg", text: "หน้าที่ 9 ภาษาไทย" },
+      { image: "../coverImage/Thai/(ภาษาไทย) (9).jpg", text: "หน้าที่ 10 ภาษาไทย" },
+      { image: "../coverImage/Thai/(ภาษาไทย) (10).jpg", text: "หน้าที่ 11 ภาษาไทย" },
     ],
   },
   en: {
@@ -75,7 +82,7 @@ const MultiImageLanguageBook = ({ currentLanguage }) => {
   const handleDragMove = (clientX) => {
     if (!isDragging) return;
     const x = clientX;
-    const walk = (x - startX) * 2; // * 2 for faster swiping
+    const walk = (x - startX) * 2;
     if (walk > 50) {
       flipPage("prev");
       setIsDragging(false);
@@ -97,7 +104,7 @@ const MultiImageLanguageBook = ({ currentLanguage }) => {
   });
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 flex flex-col items-center">
       <div
         {...handlers}
         ref={containerRef}
@@ -108,16 +115,20 @@ const MultiImageLanguageBook = ({ currentLanguage }) => {
         onTouchStart={(e) => handleDragStart(e.touches[0].clientX)}
         onTouchMove={(e) => handleDragMove(e.touches[0].clientX)}
         onTouchEnd={handleDragEnd}
-        className="bg-yellow-100 rounded-lg shadow-lg overflow-hidden mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg cursor-grab active:cursor-grabbing touch-pan-y"
+        className="bg-yellow-100 rounded-lg shadow-lg overflow-hidden cursor-grab active:cursor-grabbing touch-pan-y"
+        style={{
+          width: 'auto',
+          height: 'auto',
+          maxWidth: '100%',
+          maxHeight: 'calc(100vh - 6rem)',
+          aspectRatio: '1414 / 2000',
+        }}
       >
-        <div
-          className="relative w-full aspect-[9/16] md:aspect-[3/4] 
-                 md:max-h-[100vh] md:h-auto"
-        >
+        <div className="relative w-full h-full">
           <img
             src={content.pages[currentPage].image}
             alt={`${content.title} - Page ${currentPage + 1}`}
-            className="w-full h-full object-cover select-none"
+            className="w-full h-full object-contain select-none"
             draggable="false"
           />
           <div className="absolute inset-x-0 bottom-0 bg-black bg-opacity-50 p-2">
@@ -128,7 +139,7 @@ const MultiImageLanguageBook = ({ currentLanguage }) => {
         </div>
       </div>
 
-      <div className="flex justify-between mt-4 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto">
+      <div className="flex justify-between mt-4 w-full max-w-md">
         <button
           onClick={() => flipPage("prev")}
           disabled={currentPage === 0}
