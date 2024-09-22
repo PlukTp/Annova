@@ -48,14 +48,13 @@ const Footer = () => {
             <div className="flex items-start">
               <FaMapMarkerAlt className="mr-2 mt-1 w-5 flex-shrink-0" />
               <a
-                href="https://www.google.com/maps/search/?api=1&query=05+Lý+Tự+Trọng,+Phường+Lộc+Thọ,+TP+Nha+Trang,+Khánh+Hòa,+Việt+Nam"
+                href="https://www.google.com/maps/place/Annova+Nha+Trang+Hotel/@12.2474435,109.19423,17z/data=!3m1!4b1!4m9!3m8!1s0x31706701a3720121:0xc98e896b26eca4ab!5m2!4m1!1i2!8m2!3d12.2474435!4d109.19423!16s%2Fg%2F11s2lnrplc?entry=ttu&g_ep=EgoyMDI0MDkxOC4xIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-300 transition duration-300"
               >
                 <p>
-                  05 Lý Tự Trọng, Phường Lộc Thọ, TP Nha Trang, Khánh Hòa, Việt
-                  Nam
+                  5 Lý Tự Trọng, Lộc Thọ, Nha Trang, Khánh Hòa 650000
                 </p>
               </a>
             </div>
